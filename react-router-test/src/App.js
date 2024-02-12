@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { PageOne, PageTwo } from './Components/Pages';
+
 import { MainPage } from './Components/MainPage';
+import { PageOne } from './components/Pages';
+import { PageTwo } from './components/Pages';
 
 function App() {
   return (
