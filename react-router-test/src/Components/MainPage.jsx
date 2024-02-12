@@ -1,18 +1,32 @@
-import { Link, Outlet } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 
-export const MainPage = () => (
+export const MainPage = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log('Current location is ', location);
+  }, [location]);
+
+  return (
     <>
       <nav>
         <ul>
           <li>
-            <Link to='/one'>Page One</Link>
+          <button onClick={() => navigate('one', { replace: false })}>
+              Page One
+            </button>
           </li>
           <li>
-            <Link to='/two'>Page Two</Link>
+          <button onClick={() => navigate('two', { replace: false })}>
+              Page Two
+            </button>
           </li>
         </ul>
       </nav>
       <hr />
       <Outlet />
     </>
-);
+  );
+};
